@@ -1,0 +1,108 @@
+.all {
+    background-image: url('https://fondosmil.com/fondo/10256.jpg');
+    background-attachment: fixed;
+    width: 100vw;
+    height: 100vh;
+}
+
+.textCont {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 6%;
+    color: white;
+}
+
+.head {
+    font-size: 50px;
+    margin-right: 40px;
+    justify-content: center;
+    display: flex;
+ }
+
+.hello {
+    margin-bottom: 25px;
+}
+
+.desc {
+    font-size:22px;
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+
+}  
+
+
+.apilink {
+    color:rgb(0, 0, 0);
+    text-decoration: none;
+    font-size: 20px;
+    background-color: rgba(255, 255, 255, 0.671);
+}
+.apilink:hover {
+    color: rgb(2, 2, 148);
+}
+
+
+.description {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 25px;
+}
+
+.textd {
+    display: flex;
+    justify-content: center;
+    text-decoration:underline ;
+    padding-bottom: 15px;
+    color: white;
+}
+
+.net {
+    /* display: flex; */
+    justify-content: center;
+    text-align: center;
+    margin-top: 35px;
+    flex-direction: column;
+    width: 65px;
+    margin-left: 5%;
+    margin-right: 5%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+.net p {
+    font-size: 18px;
+    cursor:pointer;
+    justify-content: center;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    padding-left: 8px;
+    padding-right: 8px;
+    display: flex;
+    color: white;
+}
+
+.boxima {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-left: 7%;
+    margin-right: 7%;
+    align-items: center;
+}
+
+.image {
+    width: 45px;
+    height: 45px;
+    margin-bottom: 15px;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+
+
+

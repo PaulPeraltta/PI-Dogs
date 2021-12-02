@@ -1,0 +1,70 @@
+.back {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+
+.btn {
+    font-size: 48px;
+    position: absolute;
+    left: 120vh;
+    top: 21vw;
+    font-size: 25px;
+    margin-top: 80px;
+    background-color: rgba(0, 0, 0, 0);
+    padding-top: 18px;
+    padding-right: 12px;
+    padding-bottom: 18px;
+    padding-left: 12px;
+    color: rgb(255, 255, 255);
+    border-radius: 50px;
+    border-color: transparent;
+    cursor: pointer;
+ 
+   animation-name: parpadeo;
+   animation-duration: 3s;
+   animation-timing-function: linear;
+   animation-iteration-count: infinite;
+ 
+   -webkit-animation-name:parpadeo;
+   -webkit-animation-duration: 1s;
+   -webkit-animation-timing-function: linear;
+   -webkit-animation-iteration-count: infinite;
+ }
+ 
+ @-moz-keyframes parpadeo{  
+   0% { opacity: 1.0; }
+   50% { opacity: 0.0; }
+   100% { opacity: 1.0; }
+ }
+ 
+ @-webkit-keyframes parpadeo {  
+   0% { opacity: 1.0; }
+   50% { opacity: 0.0; }
+    100% { opacity: 1.0; }
+ }
+ 
+ @keyframes parpadeo {  
+   0% { opacity: 1.0; }
+    50% { opacity: 0.0; }
+   100% { opacity: 1.0; }
+ }
+
+.power {
+  position: absolute;
+    left: 123vh;
+    top: 31vw;
+    margin-top: 40px;
+    color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.title {
+    color: white;
+    font-size: 82px;
+    position: absolute;
+    left: 100vh;
+    top: 17vw;
+}

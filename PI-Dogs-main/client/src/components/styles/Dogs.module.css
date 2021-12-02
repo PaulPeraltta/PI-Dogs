@@ -1,0 +1,9 @@
+.cards {
+    width: 100vw;
+    margin-right: 30px;
+    margin-left: 30px;
+    display: grid;
+        /* flex-direction: row; */
+    grid-template-columns: 304px 304px 304px 304px;
+    grid-template-rows: 265px 265px 265px;
+}

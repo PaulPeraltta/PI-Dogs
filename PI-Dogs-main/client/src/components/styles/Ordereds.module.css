@@ -1,0 +1,37 @@
+ .ordereds {
+     display: flex;
+     flex-direction: row;
+     justify-content: end;
+     margin-right: 45px;
+     margin-top: 15px;
+     align-items: center;
+ }
+ .ordereds h1 {
+     margin-right: 380px;
+     color: white;
+ }
+ .ordereds h3 {
+     margin-left: 10px;
+     margin-right: 10px;
+     color: white;
+ }
+
+ .select {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    padding-left: 10px;
+    padding-right: 20px;
+    font-size: 17px;
+    border-radius: 15px;
+    background-color: #242424ad;
+    color: white;
+    border-top: transparent;
+    border-bottom: transparent;
+    border-left: transparent;
+    border-right: transparent;
+    outline: none;
+    margin-right: 5px;
+}
