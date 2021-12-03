@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { searchBreeds } from "../store/actions";
+import { fetchBreeds, searchBreeds } from "../store/actions";
 import s from "./styles/SearchBar.module.css";
 
 export default function SearchBar() {
@@ -17,6 +17,11 @@ export default function SearchBar() {
     setSearch(e.target.value);
   }
 
+  function handleReload(e) {
+    e.preventDefault();
+    dispatch(fetchBreeds());
+  }
+
   return (
     <div>
       {/* <form onSubmit={onSubmit}>
@@ -26,6 +31,7 @@ export default function SearchBar() {
       <div className={s.cont}>
                 <form className={s.form} onSubmit={onSubmit}>
                     <input className={s.inpt} type="text" onChange={inputOnChange}/>
+                    {/* <button onClick={handleReload} style={{width:"20px", height:"20px", backgroundColor:"transparent", borderColor:"transparent", alignItems:"center"}} ><img src="https://img.icons8.com/material-sharp/24/ffffff/railroad-crossing-sign--v1.png"/></button> */}
                     <input className={s.butn}type="image" src="https://img.icons8.com/material-outlined/24/ffffff/search--v1.png" />
                 </form>
             </div>

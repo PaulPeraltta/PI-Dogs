@@ -1,21 +1,22 @@
-import { API, DB } from "../constants/sort"
-import { sortAD } from "../store/actions";
+import { ASCENDENT, DESCENDENT, ALL } from "../constants/sort"
+import { sortAD, sortWeight } from "../store/actions";
 import { useDispatch } from "react-redux";
 import s from "./styles/Ordereds.module.css";
 
 
-export default function OrderAD() {
+export default function OrderWeight() {
     const dispatch = useDispatch();
     function onSelectChange(e) {
-        dispatch(sortAD(e.target.value))
+        e.preventDefault();
+        dispatch(sortWeight(e.target.value))
     }
 
     return (
         <div>
             <select className={s.select} onChange={onSelectChange}>
-                <option value={API}>Weight</option>
-                <option value={API}>API</option>
-                <option value={DB}>DB</option>
+                <option value={ALL}>Weight</option>
+                <option value={ASCENDENT}>Ascendent</option>
+                <option value={DESCENDENT}>Descendent</option>
             </select>
         </div>
     )

@@ -31,7 +31,6 @@ router.get("/", (req, res, next) => {
       // nest: true,
     });
   } else {
-    // agregar pagination "&page1" hasta "&page10";
     breedApi = axios.get(`https://api.thedogapi.com/v1/breeds`, {
       headers: { "x-api-key": `${DOGI_KEY}` },
     });
@@ -45,31 +44,47 @@ router.get("/", (req, res, next) => {
     .then((resp) => {
       const [respBreedApi, respBreedDb] = resp;
       if (!name) {
-        filteredBreedsApi = respBreedApi.data.map((b) => {
-          return {
-            id: b.id,
-            name: b.name,
-            image: b.image.url,
-            height: b.height.metric,
-            weight: b.weight.metric,
-            life_span: b.life_span,
-            temps: b.temperament,
-          };
-        });
+        filteredBreedsApi = respBreedApi.data.map((b) => ({
+          id: b.id,
+          name: b.name,
+          image: b.image.url,
+          height: b.height.metric,
+          weight: b.weight.metric,
+          life_span: b.life_span,
+          temps: b.temperament,
+        }));
+        filteredBreedsDb = respBreedDb.map((b) => ({
+          id: b.dataValues.id,
+          name: b.dataValues.name,
+          image: b.dataValues.image,
+          createdInDb: b.dataValues.createdInDb,
+          height: b.dataValues.height,
+          weight: b.dataValues.weight,
+          life_span: b.dataValues.life_span,
+          temps: b.dataValues.temps.map((el) => el.dataValues.name)
+        }));
       } else {
-        filteredBreedsApi = respBreedApi.data.map((b) => {
-          return {
-            id: b.id,
-            name: b.name,
-            image: b.image,
-            height: b.height.metric,
-            weight: b.weight.metric,
-            life_span: b.life_span,
-            temps: b.temperament,
-          };
-        });
+        filteredBreedsApi = respBreedApi.data.map((b) => ({
+          id: b.id,
+          name: b.name,
+          image: b.image,
+          height: b.height.metric,
+          weight: b.weight.metric,
+          life_span: b.life_span,
+          temps: b.temperament,
+        }));
+        filteredBreedsDb = respBreedDb.map((b) => ({
+          id: b.dataValues.id,
+          name: b.dataValues.name,
+          image: b.dataValues.image,
+          createdInDb: b.dataValues.createdInDb,
+          height: b.dataValues.height,
+          weight: b.dataValues.weight,
+          life_span: b.dataValues.life_span,
+          temps: b.dataValues.temps.map((el) => el.dataValues.name)
+        }));
       }
-      let allBreeds = [...filteredBreedsApi, ...respBreedDb];
+      let allBreeds = [...filteredBreedsApi, ...filteredBreedsDb];
       allBreeds.sort((a, b) => {
         if (a.name.toLowerCase() < b.name.toLowerCase()) {
           return -1;
@@ -87,35 +102,45 @@ router.get("/", (req, res, next) => {
 });
 
 router.get("/:id", (req, res, next) => {
-  const id = req.params.id;
-  if (id.length > 30) {
-    Breed.findByPk(id)
+  const ID = req.params.id;
+  if (ID.length > 30) {
+    Breed.findByPk(ID)
       .then((breed) => res.send(breed))
       .catch((error) => next(error));
   } else {
     axios
-      .get(`https://api.thedogapi.com/v1/images/search?breed_id=${id}`, {
+      .get(`https://api.thedogapi.com/v1/breeds`, {
         header: { "x-api-key": `${DOGI_KEY}` },
       })
       .then((breed) => {
-        logBreed = breed.data[0];
-        orderedBreed = {
-          id: logBreed.breeds[0].id,
-          name: logBreed.breeds[0].name,
-          image: logBreed.url,
-          height: logBreed.breeds[0].height.metric,
-          weight: logBreed.breeds[0].weight.metric,
-          life_span: logBreed.breeds[0].life_span,
-          temps: logBreed.breeds[0].temperament,
-        };
-        res.send(orderedBreed);
+        let breeds = breed.data;
+        let breedId = breeds.filter((el) => {
+          if (el.id == ID) return el;
+        });
+        if (breedId.length) {
+          logBreed = breedId[0];
+          orderedBreed = {
+            id: logBreed.id,
+            name: logBreed.name,
+            image: logBreed.image.url,
+            height: logBreed.height.metric,
+            weight: logBreed.weight.metric,
+            life_span: logBreed.life_span,
+            temps: logBreed.temperament,
+          };
+          res.send(orderedBreed);
+        } else {
+          res.send("Dont find");
+        }
       })
       .catch((error) => next(error));
   }
 });
 
 router.post("/", async (req, res, next) => {
-  const { name, image, height, weight, life_span, createdInDb, temperament } = req.body;
+  const { name, image, height, weight, life_span, createdInDb, temperament } =
+    req.body;
+  let arrayTemps = [];
 
   let newDog = await Breed.create({
     name,
@@ -124,20 +149,17 @@ router.post("/", async (req, res, next) => {
     weight,
     life_span,
     createdInDb,
-  })
+  });
 
   let tempDb = await Temp.findAll({
-    where: { name: temperament }
-  })
+    where: { name: temperament },
+  });
+  // tempDb.map(temp => {
+  //   arrayTemps.push(temp.dataValues.name)
+  // });
 
-  newDog.addTemp(tempDb)
-  res.send('Congratulations! Your Dog was created successfully')
-  
-
-
-  BreedCreated.addTemp(TempsDb)
-    .then(() => res.send("Congratulations! Your Dog was created successfully"))
-    .catch((error) => next(error));
+  newDog.addTemp(tempDb);
+  res.send("Congratulations! Your Dog was created successfully");
 });
 
 router.post("/:breedId/temp/:tempId", (req, res, next) => {

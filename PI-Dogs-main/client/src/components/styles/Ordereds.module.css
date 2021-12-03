@@ -3,11 +3,11 @@
      flex-direction: row;
      justify-content: end;
      margin-right: 45px;
-     margin-top: 15px;
+     margin-top: 10px;
      align-items: center;
  }
- .ordereds h1 {
-     margin-right: 380px;
+ .ordereds h2 {
+     margin-right: 250px;
      color: white;
  }
  .ordereds h3 {

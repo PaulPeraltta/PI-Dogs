@@ -1,20 +1,25 @@
+import React from 'react';
+import s from './styles/Pagination.module.css';
 
+function Pagination({dogsPerPage, breeds, paginado}) {
+    const pageNumbers = [];
 
-function Pagination() {
+    for (let i = 1; i <= Math.ceil(breeds/dogsPerPage); i++ ) {
+        pageNumbers.push(i);
+    }
 
     return (
-        <div>
-            <ul>
-                <button value='0'><li style={{listStyle: "none"}}>1</li></button>
-                <button value='1'><li style={{listStyle: "none"}}>2</li></button>
-                <button value='2'><li style={{listStyle: "none"}}>3</li></button>
-                <button value='3'><li style={{listStyle: "none"}}>4</li></button>
-                <button value='4'><li style={{listStyle: "none"}}>5</li></button>
-                <button value='5'><li style={{listStyle: "none"}}>6</li></button>
-                <button value='6'><li style={{listStyle: "none"}}>7</li></button>
+        <nav>
+            <ul className={s.paginado}>
+                { pageNumbers && pageNumbers.map(number => (
+                    <li className={s.number} key={number}>
+                    <a onClick={() => paginado(number)}>{number}</a>
+                    </li>
+                ))}
             </ul>
-        </div>
+        </nav>
     )
 }
 
 export default Pagination
+

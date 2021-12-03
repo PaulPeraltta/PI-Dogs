@@ -4,7 +4,7 @@ import { Route } from "react-router";
 import "./App.css";
 
 import DogDetail from "./components/DogDetail";
-import Front from "./visual/Front";
+import Landing from "./visual/Landing";
 import Home from "./visual/Home";
 import Form from "./visual/Form";
 import AboutMe from "./visual/AboutMe";
@@ -27,7 +27,7 @@ export default function App() {
             <Form />
           </Route>
           <Route path="/">
-            <Front />
+            <Landing />
           </Route>
         </Switch>
       </BrowserRouter>

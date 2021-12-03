@@ -1,9 +1,9 @@
-import { ASCENDENT, DESCENDENT, API, DB } from "../../constants/sort";
-import { FETCH_BREEDS, SEARCH_BREEDS, SORT_AD, SORT_ALF } from "../actions";
+import { ALL, ASCENDENT, DESCENDENT, API, DB } from "../../constants/sort";
+import { FETCH_BREEDS, SEARCH_BREEDS, SORT_WEIGHT, SORT_ALF, FILTER_BY_WEIGHT, FILTER_BY_AD } from "../actions";
 
  const initialState = {
-     breeds: [],
-     filteredBreeds: []
+    breeds: [],
+    filteredBreeds: []
  }
 
  export default function reducer(state = initialState, action) {
@@ -19,9 +19,23 @@ import { FETCH_BREEDS, SEARCH_BREEDS, SORT_AD, SORT_ALF } from "../actions";
                 ...state, 
                 filteredBreeds: action.payload 
             }
+        case FILTER_BY_WEIGHT:
+            const allBreeds = state.breeds;
+            const weightFilter = action.payload === ALL ? allBreeds : allBreeds.filter(el => el.weight === action.payload)
+            return {
+                ...state,
+                filteredBreeds: weightFilter
+            }
+        case FILTER_BY_AD:
+            const theBreeds = state.breeds;
+            const whereFilter = action.payload === DB ? theBreeds.filter(el => el.createdInDb) : theBreeds.filter(el => !el.createdInDb);
+            return {
+                ...state,
+                filteredBreeds: action.payload === ALL ? theBreeds : whereFilter
+            }
         case SORT_ALF:
             let orderedBreeds= [...state.breeds]
-                orderedBreeds.sort( (a, b) => {
+            let sortedBreedsAlf = orderedBreeds.sort( (a, b) => {
                     if (a.name.toLowerCase() < b.name.toLowerCase()) {
                       return action.payload === DESCENDENT ? -1 : 1
                     }
@@ -32,15 +46,32 @@ import { FETCH_BREEDS, SEARCH_BREEDS, SORT_AD, SORT_ALF } from "../actions";
                   });
             return {
                 ...state,
-                filteredBreeds: orderedBreeds,
+                filteredBreeds: action.payload === ALL ? state.breeds : sortedBreedsAlf
             }
-        case SORT_AD:
-            const [api, db] = state.breed;
-            if(action.payload === DB) console.log(api)
-            if(action.payload === API) console.log(db)
-
-            return {
-                ...state
+        case SORT_WEIGHT:
+            let orderedBreedsAD = [...state.breeds]
+            let sortedBreedsAD = action.payload === ASCENDENT ?
+                orderedBreedsAD.sort( (a, b) => {
+                    if (parseInt(a.weight, 10) > parseInt(b.weight, 10)) {
+                      return 1;
+                    }
+                    if (parseInt(a.weight, 10) < parseInt(b.weight, 10)) {
+                        return -1
+                    }
+                    return 0;
+                  }) : 
+                  orderedBreedsAD.sort( (a, b) => {
+                      if (parseInt(a.weight, 10) > parseInt(b.weight, 10)) {
+                        return - 1;
+                      }
+                      if (parseInt(a.weight, 10) < parseInt(b.weight, 10)) {
+                          return 1
+                      }
+                      return 0;
+                    }) 
+                  return {
+                ...state,
+                filteredBreeds: action.payload === ALL ? state.breeds : sortedBreedsAD
             }
         default:
             return state
