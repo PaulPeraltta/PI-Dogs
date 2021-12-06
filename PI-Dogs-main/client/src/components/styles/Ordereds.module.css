@@ -1,7 +1,7 @@
  .ordereds {
      display: flex;
      flex-direction: row;
-     justify-content: end;
+     justify-content: flex-end;
      margin-right: 45px;
      margin-top: 10px;
      align-items: center;
@@ -18,7 +18,7 @@
 
  .select {
     display: flex;
-    justify-content: center;
+    justify-content: left;
     text-align: center;
     padding-top: 7px;
     padding-bottom: 7px;
@@ -26,7 +26,7 @@
     padding-right: 20px;
     font-size: 17px;
     border-radius: 15px;
-    background-color: #242424ad;
+    background-color: rgba(0, 0, 0, 0.76);
     color: white;
     border-top: transparent;
     border-bottom: transparent;
@@ -34,4 +34,8 @@
     border-right: transparent;
     outline: none;
     margin-right: 5px;
+}
+
+.select:hover {
+    background-color: rgba(129, 129, 129, 0.76);
 }

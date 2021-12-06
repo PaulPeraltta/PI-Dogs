@@ -1,0 +1,126 @@
+.box {
+    width: 100%;
+    height: 100vh;
+    background-image: url('https://wallpaperaccess.com/full/1826326.jpg');
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.nav {
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.cardDetail {
+    background-color: rgba(0, 0, 0, 0.651);
+    border-radius: 25px;
+    width: 1100px;
+    height: 550px;
+    margin-top: 60px;
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding-left: 30px;
+    padding-right: 30px;
+    
+}
+
+.boxinfo {
+    margin-left: 45px;
+}
+
+.name{
+    color: rgb(255, 215, 215);
+    font-size: 60px;
+    margin-bottom: 25px;
+}
+
+.imagen {
+    width: 700px;
+    height: 500px;
+    border-radius: 25px;
+    border: 0.5px rgba(255, 255, 255, 0.514) solid; 
+}
+
+.metrics h3 {
+    color: white;
+    font-size: 25px;
+}
+
+.temps {
+    width: 276px;
+    display: inline-flex;
+    color: rgb(224, 224, 224);
+    border-radius: 25px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin-top: 12px;
+    background-color: rgba(255, 255, 255, 0.40);
+    justify-content: center;
+}
+
+.contentLoad {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 200px;
+    height: 200px;
+    background-color: rgba(0, 0, 0, 0.705);
+    border-radius: 25px;
+}
+
+.spinner { 
+    margin-left: 70px;
+    margin-right: 70px;
+    border: 7px solid rgba(0,0,0,.1);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border-left-color: rgb(0, 255, 13);
+
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.load {
+    color: white;
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+.tempTitle {
+    color: white;
+    font-size: 25px;
+    margin-top: 20px;
+}
+
+.button {
+    display: flex;
+    margin-top: 24px;
+    position: fixed;
+    padding-top: 17px;
+    padding-bottom: 17px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 25px;
+    background-color: rgba(0, 0, 0, 0.651);
+    border-color: transparent;
+    color: white;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: rgba(0, 0, 0, 0.774);
+}

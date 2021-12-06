@@ -9,11 +9,11 @@ function Pagination({dogsPerPage, breeds, paginado}) {
     }
 
     return (
-        <nav>
+        <nav className={s.box}>
             <ul className={s.paginado}>
                 { pageNumbers && pageNumbers.map(number => (
                     <li className={s.number} key={number}>
-                    <a onClick={() => paginado(number)}>{number}</a>
+                    <button className={s.buttons} onClick={() => paginado(number)}>{number}</button>
                     </li>
                 ))}
             </ul>

@@ -31,15 +31,15 @@ export default function AboutMe() {
       </div>
       <div className={s.boxima}>
         <div className={s.net}>
-            <img href="" className={s.image} src="https://img.icons8.com/ios-glyphs/30/ffffff/github.png"/>
+            <img href="" className={s.image} src="https://img.icons8.com/ios-glyphs/30/ffffff/github.png" alt="Github-Logo"/>
             <p>GitHub</p>
         </div>
         <div className={s.net}>
-            <img className={s.image} src="https://img.icons8.com/ios-glyphs/30/ffffff/linkedin.png"/>
+            <img className={s.image} src="https://img.icons8.com/ios-glyphs/30/ffffff/linkedin.png" alt="LinkedIn-Logo"/>
             <p>LinkedIn</p>
         </div>
         <div className={s.net}>
-            <img className={s.image} src="https://img.icons8.com/windows/32/ffffff/gmail-new.png"/>
+            <img className={s.image} src="https://img.icons8.com/windows/32/ffffff/gmail-new.png" alt="Gmail-Logo"/>
             <p>Gmail</p>
         </div>
       </div>

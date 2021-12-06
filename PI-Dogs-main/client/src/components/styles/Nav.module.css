@@ -1,5 +1,5 @@
 .navAll {
-    background-color: rgba(0, 0, 0, 0.473);
+    background-color: rgba(0, 0, 0, 0.658);
     align-items: center;
     display:flex;
     justify-content: left;
@@ -8,11 +8,12 @@
     padding-left: 58px;
     padding-right: 58px;
     margin-top: 0px;
+
 }
 
 .title {
     font-size: 36px;
-    margin-right: 42vw;
+    margin-right: 40vw;
     color: white;
 }
 

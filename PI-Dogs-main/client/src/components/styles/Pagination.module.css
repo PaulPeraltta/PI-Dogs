@@ -1,19 +1,40 @@
- .paginado {
+.box {
+    justify-content: center;
+    display: flex;
+}
+
+.paginado {
+    border-radius: 15px;
      display: flex;
      flex-direction: row;
      justify-content: center;
-     background-color: black;
+     background-color: rgba(0, 0, 0, 0.815);
      color: white;
      list-style: none;
+     margin-top: 13px;
+     width: max-content;
+     border-inline: 1px grey solid;
+     padding-top: 5px;
+     padding-bottom: 5px;
      padding-left: 10px;
      padding-right: 10px;
-     margin-top: 13px;
  }
 
- .number {
+ .buttons {
      cursor: pointer;
-     margin-left: 10px;
-     margin-right: 10px;
-     padding-top: 10px;
-     padding-bottom: 10px;
+     border: transparent;
+     background-color: rgb(0, 0, 0);
+     color: white;
+     cursor: pointer;
+     margin-left: 5px;
+     margin-right: 5px;
+     padding-top: 2px;
+     padding-bottom: 2px;
+     padding-right: 5px;
+     padding-left:  5px;
+     border-radius: 25px;
+ }
+ .buttons:hover{
+    background-color: rgb(146, 146, 146);
+    color: white;
  }

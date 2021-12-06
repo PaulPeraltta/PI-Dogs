@@ -18,27 +18,36 @@
     margin-right: 40px;
     justify-content: center;
     display: flex;
- }
+    
+}
+
+.head h2 {
+    background-color: rgba(0, 0, 0, 0.705);
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 15px;
+}
 
 .hello {
     margin-bottom: 25px;
 }
 
 .desc {
-    font-size:22px;
+    font-size: 22px;
     display: flex;
     justify-content: center;
     box-sizing: border-box;
-
-}  
+    width: 70vw;
+}
 
 
 .apilink {
-    color:rgb(0, 0, 0);
+    color: rgb(0, 0, 0);
     text-decoration: none;
     font-size: 20px;
     background-color: rgba(255, 255, 255, 0.671);
 }
+
 .apilink:hover {
     color: rgb(2, 2, 148);
 }
@@ -49,12 +58,13 @@
     justify-content: center;
     flex-direction: column;
     padding: 25px;
+
 }
 
 .textd {
     display: flex;
     justify-content: center;
-    text-decoration:underline ;
+    text-decoration: underline;
     padding-bottom: 15px;
     color: white;
 }
@@ -76,7 +86,7 @@
 
 .net p {
     font-size: 18px;
-    cursor:pointer;
+    cursor: pointer;
     justify-content: center;
     padding-top: 3px;
     padding-bottom: 3px;
@@ -102,7 +112,3 @@
     background-color: transparent;
     cursor: pointer;
 }
-
-
-
-

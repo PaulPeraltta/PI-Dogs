@@ -1,5 +1,5 @@
 import { ASCENDENT, DESCENDENT, ALL } from "../constants/sort"
-import { sortAD, sortWeight } from "../store/actions";
+import { sortWeight } from "../store/actions";
 import { useDispatch } from "react-redux";
 import s from "./styles/Ordereds.module.css";
 

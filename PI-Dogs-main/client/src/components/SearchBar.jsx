@@ -20,6 +20,7 @@ export default function SearchBar() {
   function handleReload(e) {
     e.preventDefault();
     dispatch(fetchBreeds());
+    setSearch("");
   }
 
   return (
@@ -30,9 +31,9 @@ export default function SearchBar() {
       </form> */}
       <div className={s.cont}>
                 <form className={s.form} onSubmit={onSubmit}>
-                    <input className={s.inpt} type="text" onChange={inputOnChange}/>
-                    {/* <button onClick={handleReload} style={{width:"20px", height:"20px", backgroundColor:"transparent", borderColor:"transparent", alignItems:"center"}} ><img src="https://img.icons8.com/material-sharp/24/ffffff/railroad-crossing-sign--v1.png"/></button> */}
-                    <input className={s.butn}type="image" src="https://img.icons8.com/material-outlined/24/ffffff/search--v1.png" />
+                    <input value={search} className={s.inpt} type="text" placeholder="Search Dog" onChange={inputOnChange}/>
+                    <button className ={s.butn} onClick={handleReload} style={{width:"20px", height:"20px", backgroundColor:"transparent", borderColor:"transparent", alignItems:"center"}} ><img className={s.cross} src="https://img.icons8.com/material-outlined/24/ffffff/delete-sign.png" alt="Cross"/></button>      
+                    <input className={s.butn} type="image" src="https://img.icons8.com/material-outlined/24/ffffff/search--v1.png" alt="Lupa"/>
                 </form>
             </div>
     </div>

@@ -26,7 +26,7 @@ router.get("/", (req, res, next) => {
           [Op.iLike]: "%" + name + "%",
         },
       },
-      order: [["name", "ASC"]],
+      // order: [["name", "ASC"]],
       // raw: true,
       // nest: true,
     });
@@ -104,8 +104,30 @@ router.get("/", (req, res, next) => {
 router.get("/:id", (req, res, next) => {
   const ID = req.params.id;
   if (ID.length > 30) {
-    Breed.findByPk(ID)
-      .then((breed) => res.send(breed))
+    // Breed.findByPk(ID)
+    Breed.findAll({
+      include: Temp,
+      where: {
+        id: ID,
+      },
+      // order: [["name", "ASC"]],
+      // raw: true,
+      // nest: true,
+    })
+      .then((breed) => {
+        dataBase = breed[0].dataValues;
+        theBreed = {
+          id: dataBase.id,
+          name: dataBase.name,
+          image: dataBase.image,
+          height: dataBase.height,
+          weight: dataBase.weight,
+          life_span: dataBase.life_span,
+          temps: dataBase.temps.map(t => t.dataValues.name)
+
+        }
+        res.send(theBreed)
+      })
       .catch((error) => next(error));
   } else {
     axios

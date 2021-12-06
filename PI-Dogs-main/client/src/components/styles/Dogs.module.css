@@ -4,5 +4,5 @@
     display: grid;
     /* flex-direction: row; */
     grid-template-columns: 304px 304px 304px 304px;
-    grid-template-rows: 265px 265px;
+    grid-template-rows: 261px 255px;
 }

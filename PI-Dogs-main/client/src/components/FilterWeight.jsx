@@ -7,12 +7,11 @@ import { ALL, OneAtThree, OneAtFive, TwoAtThree, TwoAtFour, ThreeAtFour,
     ElevenAtTwelve, ElevenAtFourteen, ElevenAtFifteen, ElevenAtSixteen, ElevenAtSeventeen,
     ElevenAtEighteen, ElevenAtTwenty} from "../constants/sort"
 import { filterDogsByWeight } from "../store/actions";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import s from "./styles/Ordereds.module.css";
 
 
 export default function FilterWeight() {
-    // const allBreeds = useSelector((state) => state.filteredBreeds);
     const dispatch = useDispatch();
 
     function onSelectChange(e) {

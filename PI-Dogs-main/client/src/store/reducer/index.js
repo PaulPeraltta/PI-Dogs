@@ -1,9 +1,11 @@
-import { ALL, ASCENDENT, DESCENDENT, API, DB } from "../../constants/sort";
-import { FETCH_BREEDS, SEARCH_BREEDS, SORT_WEIGHT, SORT_ALF, FILTER_BY_WEIGHT, FILTER_BY_AD } from "../actions";
+import { ALL, ASCENDENT, DESCENDENT, DB } from "../../constants/sort";
+import { FETCH_BREEDS, GET_TEMPERAMENTS, SEARCH_BREEDS, SORT_WEIGHT, SORT_ALF, FILTER_BY_WEIGHT, FILTER_BY_AD, POST_DOG, GET_DETAIL } from "../actions";
 
  const initialState = {
     breeds: [],
-    filteredBreeds: []
+    filteredBreeds: [],
+    temperaments: [],
+    detail: []
  }
 
  export default function reducer(state = initialState, action) {
@@ -13,6 +15,11 @@ import { FETCH_BREEDS, SEARCH_BREEDS, SORT_WEIGHT, SORT_ALF, FILTER_BY_WEIGHT, F
                 ...state, 
                 breeds: action.payload,
                 filteredBreeds: action.payload
+            }
+        case GET_TEMPERAMENTS:
+            return {
+                 ...state,
+                temperaments: action.payload
             }
         case SEARCH_BREEDS:
             return {
@@ -73,6 +80,17 @@ import { FETCH_BREEDS, SEARCH_BREEDS, SORT_WEIGHT, SORT_ALF, FILTER_BY_WEIGHT, F
                 ...state,
                 filteredBreeds: action.payload === ALL ? state.breeds : sortedBreedsAD
             }
+            case POST_DOG: {
+                return {
+                    ...state
+                }
+            }
+            case GET_DETAIL :
+                return {
+                    ...state,
+                    detail: action.payload
+                }
+            
         default:
             return state
     }
