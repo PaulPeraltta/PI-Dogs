@@ -30,11 +30,13 @@
 }
 
 .boxinfo {
-    margin-left: 45px;
+    margin-left: 20px;
+    margin-right: 20px;
+    width: 350px;
 }
 
 .name{
-    color: rgb(255, 215, 215);
+    color: rgb(255, 255, 255);
     font-size: 60px;
     margin-bottom: 25px;
 }
@@ -61,6 +63,7 @@
     margin-top: 12px;
     background-color: rgba(255, 255, 255, 0.40);
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 .contentLoad {

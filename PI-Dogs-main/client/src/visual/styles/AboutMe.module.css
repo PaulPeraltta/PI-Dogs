@@ -3,19 +3,20 @@
     background-attachment: fixed;
     width: 100vw;
     height: 100vh;
+    image-rendering: optimizeSpeed;
 }
 
 .textCont {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding-top: 6%;
+    padding-top: 60px;
     color: white;
 }
 
 .head {
     font-size: 50px;
-    margin-right: 40px;
+    /* margin-right: 40px; */
     justify-content: center;
     display: flex;
     
@@ -28,17 +29,13 @@
     border-radius: 15px;
 }
 
-.hello {
-    margin-bottom: 25px;
-}
-
-.desc {
-    font-size: 22px;
+/* .desc {
     display: flex;
+    font-size: 22px;
     justify-content: center;
     box-sizing: border-box;
     width: 70vw;
-}
+} */
 
 
 .apilink {
@@ -54,19 +51,9 @@
 
 
 .description {
-    display: flex;
     justify-content: center;
-    flex-direction: column;
     padding: 25px;
-
-}
-
-.textd {
-    display: flex;
-    justify-content: center;
-    text-decoration: underline;
-    padding-bottom: 15px;
-    color: white;
+    font-size: 22px;
 }
 
 .net {
@@ -82,6 +69,19 @@
     padding-bottom: 10px;
     padding-left: 12px;
     padding-right: 12px;
+    background-color: rgba(0, 0, 0, 0.815);
+    border-radius: 25px;
+    cursor:pointer;
+}
+
+.net:hover {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 19px;
+    padding-right: 19px;
+    margin-top: 20px;
+    margin-left: 4.4%;
+    margin-right: 4.4%;
 }
 
 .net p {

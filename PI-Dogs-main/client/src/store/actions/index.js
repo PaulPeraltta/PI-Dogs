@@ -9,6 +9,7 @@ export const FILTER_BY_WEIGHT = 'FILTER_BY_WEIGHT';
 export const FILTER_BY_AD = 'FILTER_BY_AD';
 export const POST_DOG = 'POST_DOG';
 export const GET_DETAIL = 'GET_DETAIL';
+export const FILTER_BY_TEMP = 'FILTER_BY_TEMP'
 
 export function fetchBreeds() {
     return function(dispatch) {
@@ -76,6 +77,13 @@ export function sortWeight(order) {
 export function filterDogsByWeight(payload) {
     return {
         type: FILTER_BY_WEIGHT,
+        payload
+    }
+}
+
+export function filterDogsByTemp(payload) {
+    return {
+        type: FILTER_BY_TEMP,
         payload
     }
 }

@@ -11,7 +11,7 @@ export default function Dogs() {
     const breeds = useSelector((state) => state.filteredBreeds);
     const dispatch = useDispatch();
     const [currentPage, setCurrentPage] = useState(1);
-    const [dogsPerPage, setDogsPerPage] = useState(8);
+    const [dogsPerPage] = useState(8);
     const indexOfLastDog = currentPage * dogsPerPage;
     const indexOfFirstDog = indexOfLastDog - dogsPerPage; 
     const currentsDogs = breeds.slice(indexOfFirstDog, indexOfLastDog)
@@ -22,7 +22,7 @@ export default function Dogs() {
 
     useEffect(() => {
         dispatch(fetchBreeds());
-    }, [])
+    }, [dispatch])
   return (
       <div>
         < div className={s.cards}>

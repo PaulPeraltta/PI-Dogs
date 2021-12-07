@@ -7,7 +7,7 @@
      align-items: center;
  }
  .ordereds h2 {
-     margin-right: 250px;
+     margin-right: 320px;
      color: white;
  }
  .ordereds h3 {
@@ -19,7 +19,8 @@
  .select {
     display: flex;
     justify-content: left;
-    text-align: center;
+    /* text-align: center; */
+    width: 120px;
     padding-top: 7px;
     padding-bottom: 7px;
     padding-left: 10px;

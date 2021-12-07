@@ -5,13 +5,15 @@ import { ALL, OneAtThree, OneAtFive, TwoAtThree, TwoAtFour, ThreeAtFour,
     SevenAtEight, SevenAtNine, SevenAtTen, EightAtTen, EightAtFifteen, NineAtEleven,
     NineAtFourteen, NineAtSixteen, NineAtEighteen, TenAtEleven, TenAtThirteen,
     ElevenAtTwelve, ElevenAtFourteen, ElevenAtFifteen, ElevenAtSixteen, ElevenAtSeventeen,
-    ElevenAtEighteen, ElevenAtTwenty} from "../constants/sort"
+    ElevenAtEighteen, ElevenAtTwenty} from "../constants/sort";
+    
 import { filterDogsByWeight } from "../store/actions";
 import { useDispatch } from "react-redux";
 import s from "./styles/Ordereds.module.css";
 
 
 export default function FilterWeight() {
+    
     const dispatch = useDispatch();
 
     function onSelectChange(e) {

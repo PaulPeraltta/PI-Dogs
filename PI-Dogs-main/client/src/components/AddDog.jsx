@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getTemperaments, postDog } from "../store/actions";
-import axios from "axios";
 import s from "./styles/AddDog.module.css";
 
 function validate(dog) {
@@ -73,7 +72,7 @@ export default function AddDog() {
 
   useEffect(() => {
     dispatch(getTemperaments());
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className={s.all}>
