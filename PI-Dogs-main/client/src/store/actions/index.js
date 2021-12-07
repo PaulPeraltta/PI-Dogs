@@ -48,7 +48,7 @@ export function searchBreeds(search) {
         .then(breeds => {
             dispatch({
                 type: SEARCH_BREEDS,
-                payload: breeds.data
+                payload: breeds.data,
             })
         })
         .catch((err) => {

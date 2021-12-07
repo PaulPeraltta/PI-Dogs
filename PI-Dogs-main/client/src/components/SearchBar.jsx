@@ -30,9 +30,9 @@ export default function SearchBar() {
         <input type="submit" value="Search" />
       </form> */}
       <div className={s.cont}>
-                <form className={s.form} onSubmit={onSubmit}>
-                    <input value={search} className={s.inpt} type="text" placeholder="Search Dog" onChange={inputOnChange}/>
-                    <button className ={s.butn} onClick={handleReload} style={{width:"20px", height:"20px", backgroundColor:"transparent", borderColor:"transparent", alignItems:"center"}} ><img className={s.cross} src="https://img.icons8.com/material-outlined/24/ffffff/delete-sign.png" alt="Cross"/></button>      
+                <form className={s.form} onSubmit={e => onSubmit(e)}>
+                    <input value={search} className={s.inpt} type="text" placeholder="Search Dog" onChange={e => inputOnChange(e)}/>
+                    <button className ={s.butn} onClick={e => handleReload(e)} style={{width:"20px", height:"20px", backgroundColor:"transparent", borderColor:"transparent", alignItems:"center"}} ><img className={s.cross} src="https://img.icons8.com/material-outlined/24/ffffff/delete-sign.png" alt="Cross"/></button>      
                     <input className={s.butn} type="image" src="https://img.icons8.com/material-outlined/24/ffffff/search--v1.png" alt="Lupa"/>
                 </form>
             </div>

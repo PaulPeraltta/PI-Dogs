@@ -1,4 +1,4 @@
-import { ALL, DESCENDENT, DB } from "../../constants/sort";
+import { ALL, DESCENDENT, DB, ThreeAtSeven } from "../../constants/sort";
 import {
   FETCH_BREEDS,
   GET_TEMPERAMENTS,
@@ -9,7 +9,7 @@ import {
   FILTER_BY_AD,
   POST_DOG,
   GET_DETAIL,
-  // FILTER_BY_TEMP,
+  FILTER_BY_TEMP,
 } from "../actions";
 
 const initialState = {
@@ -38,16 +38,29 @@ export default function reducer(state = initialState, action) {
       return {
         ...state,
         filteredBreeds: action.payload,
+        filteredesBreeds: action.payload
       };
     case FILTER_BY_WEIGHT:
       const allBreeds = state.breeds;
       const weightFilter =
         action.payload === ALL
-          ? allBreeds
+          ? state.filteredesBreeds
           : allBreeds.filter((el) => el.weight === action.payload);
       return {
         ...state,
         filteredBreeds: weightFilter,
+      };
+    case FILTER_BY_TEMP:
+      const allBreedes = state.filteredesBreeds;
+      const tempFilter = 
+       allBreedes.filter((el) => { if(el.temps){
+              if(el.temps.includes(action.payload)) {
+                return el;
+              }
+          }})
+      return {
+        ...state,
+        filteredBreeds: action.payload === ALL ? state.filteredesBreeds : tempFilter,
       };
     case FILTER_BY_AD:
       const theBreeds = state.breeds;
@@ -80,7 +93,7 @@ export default function reducer(state = initialState, action) {
           action.payload === ALL ? state.filteredesBreeds : sortedBreedsAlf,
       };
     case SORT_WEIGHT:
-      let orderedBreedsAD = [...state.filteredBreeds];
+      let orderedBreedsAD = [...state.filteredesBreeds];
       let sortedBreedsAD =
         action.payload === DESCENDENT
           ? orderedBreedsAD.sort((a, b) => {

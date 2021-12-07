@@ -3,7 +3,7 @@ import { Switch } from "react-router-dom";
 import { Route } from "react-router";
 import "./App.css";
 
-import DogDetail from "./components/DogDetail";
+import Detail from "./visual/Detail";
 import Landing from "./visual/Landing";
 import Home from "./visual/Home";
 import Form from "./visual/Form";
@@ -15,7 +15,7 @@ export default function App() {
       <BrowserRouter>
         <Switch>
           <Route path="/home/dogs/:id">
-            <DogDetail />
+            <Detail />
           </Route>
           <Route path="/home">
             <Home />

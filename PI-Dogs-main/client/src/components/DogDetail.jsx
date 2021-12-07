@@ -16,17 +16,17 @@ export default function DogDetail() {
   }, [dispatch, id]);
   let dog = useSelector((state) => state.detail);
 
+
   function onBack(e) {
     e.preventDefault();
-    history.push("/home");
+    history.push('/home');
   }
-
   return (
     <div className={s.box}>
       <div className={s.nav}>
         <Nav />
       </div>
-      {dog ? (
+      { dog ? (
         <div className={s.cardDetail}>
           <div
             style={{

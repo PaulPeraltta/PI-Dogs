@@ -14,7 +14,7 @@ router.get("/", (req, res, next) => {
 
   if (name) {
     breedApi = axios.get(
-      `https://api.thedogapi.com/v1/breeds/search?q=${name}`,
+      `https://api.thedogapi.com/v1/breeds/`,
       {
         header: { "x-api-key": `${DOGI_KEY}` },
       }
@@ -43,8 +43,11 @@ router.get("/", (req, res, next) => {
   Promise.all([breedApi, breedDb])
     .then((resp) => {
       const [respBreedApi, respBreedDb] = resp;
-      if (!name) {
-        filteredBreedsApi = respBreedApi.data.map((b) => ({
+      if(name) {
+        prefilteredBreedsApi = respBreedApi.data.filter((b) => b.name.toLowerCase().includes(name.toLowerCase()));
+        filteredBreedsApi = prefilteredBreedsApi.map((b) => { 
+          // let temperaments = b.temperament.split(', ');
+         return {
           id: b.id,
           name: b.name,
           image: b.image.url,
@@ -52,7 +55,8 @@ router.get("/", (req, res, next) => {
           weight: b.weight.metric,
           life_span: b.life_span,
           temps: b.temperament,
-        }));
+        }
+          })
         filteredBreedsDb = respBreedDb.map((b) => ({
           id: b.dataValues.id,
           name: b.dataValues.name,
@@ -64,15 +68,18 @@ router.get("/", (req, res, next) => {
           temps: b.dataValues.temps.map((el) => el.dataValues.name)
         }));
       } else {
-        filteredBreedsApi = respBreedApi.data.map((b) => ({
-          id: b.id,
-          name: b.name,
-          image: b.image,
-          height: b.height.metric,
-          weight: b.weight.metric,
-          life_span: b.life_span,
-          temps: b.temperament,
-        }));
+        filteredBreedsApi = respBreedApi.data.map((b) => {
+          // let temperaments = b.temperament.split(', ');
+          return {
+            id: b.id,
+            name: b.name,
+            image: b.image.url,
+            height: b.height.metric,
+            weight: b.weight.metric,
+            life_span: b.life_span,
+            temps: b.temperament,
+          }
+          });
         filteredBreedsDb = respBreedDb.map((b) => ({
           id: b.dataValues.id,
           name: b.dataValues.name,
@@ -83,6 +90,7 @@ router.get("/", (req, res, next) => {
           life_span: b.dataValues.life_span,
           temps: b.dataValues.temps.map((el) => el.dataValues.name)
         }));
+
       }
       let allBreeds = [...filteredBreedsApi, ...filteredBreedsDb];
       allBreeds.sort((a, b) => {
