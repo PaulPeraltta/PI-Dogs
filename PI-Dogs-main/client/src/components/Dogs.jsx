@@ -26,9 +26,16 @@ export default function Dogs() {
   return (
       <div>
         < div className={s.cards}>
-            { currentsDogs && currentsDogs.map((d)=>{
+            { breeds.length ? currentsDogs.map((d)=>{
                 return <Dog name={d.name} dogImage={d.image} weight={d.weight} temps={d.temps} id={d.id} key={d.id}/>
-            })}
+            }) : 
+            <div className={s.box}>
+            <div className={s.contentLoad}>
+            <div className={s.spinner}></div>
+            <p className={s.load}>Loading</p>
+            </div>
+            </div>
+            }
         </div>
                 <Pagination 
                     dogsPerPage={dogsPerPage}

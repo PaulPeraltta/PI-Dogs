@@ -1,4 +1,4 @@
-import { ALL, DESCENDENT, DB, ThreeAtSeven } from "../../constants/sort";
+import { ALL, DESCENDENT, DB } from "../../constants/sort";
 import {
   FETCH_BREEDS,
   GET_TEMPERAMENTS,

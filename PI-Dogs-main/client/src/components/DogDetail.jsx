@@ -11,22 +11,28 @@ export default function DogDetail() {
   const dispatch = useDispatch();
   const history = useHistory();
   let { id } = useParams();
+
   useEffect(() => {
     dispatch(getDetail(id));
   }, [dispatch, id]);
-  let dog = useSelector((state) => state.detail);
 
+  let dog = useSelector((state) => state.detail);
 
   function onBack(e) {
     e.preventDefault();
     history.push('/home');
+    dog = null
   }
+
+  console.log(dog)
+  console.log(Number.parseInt(id))
+
   return (
     <div className={s.box}>
       <div className={s.nav}>
         <Nav />
       </div>
-      { dog ? (
+      { (dog && typeof dog.id === 'number'? dog.id === Number.parseInt(id) : dog.id === id) ? (
         <div className={s.cardDetail}>
           <div
             style={{

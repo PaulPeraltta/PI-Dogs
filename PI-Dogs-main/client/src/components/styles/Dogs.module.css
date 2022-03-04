@@ -3,6 +3,59 @@
     justify-content: center;
     display: grid;
     /* flex-direction: row; */
-    grid-template-columns: 304px 304px 304px 304px;
-    grid-template-rows: 261px 255px;
+    /* grid-template-columns: 300px 300px 300px 300px;
+    grid-template-rows: 255px 255px; */
+
+
+    margin: 6px 0px;
+    grid-template-columns: 280px 280px 280px 280px;
+    grid-template-rows: 260px 239px;
+    justify-items: center;
+    align-items: center;
+}
+
+.box {
+    width: 100vw;
+    height: 70vmin;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contentLoad {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 200px;
+    height: 200px;
+    background-color: rgba(0, 0, 0, 0.705);
+    border-radius: 25px;
+}
+
+.spinner { 
+    margin-left: 70px;
+    margin-right: 70px;
+    border: 7px solid rgba(0,0,0,.1);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border-left-color: rgb(0, 255, 13);
+
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.load {
+    color: white;
+    font-size: 20px;
+    margin-top: 20px;
 }
