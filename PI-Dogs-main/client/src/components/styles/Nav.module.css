@@ -1,5 +1,6 @@
 .navAll {
     background-color: rgba(0, 0, 0, 0.658);
+    /* background-color: rgba(0, 76, 163, 0.76); */
     align-items: center;
     display:flex;
     justify-content: left;
@@ -15,10 +16,12 @@
     font-size: 36px;
     margin-right: 40vw;
     color: white;
+    /* color: rgb(0, 2, 138); */
 }
 
 .about {
     color: white;
+    /* color: rgb(0, 2, 138); */
     font-size: 24px;
     margin-top: 15px;
     margin-bottom: 15px;

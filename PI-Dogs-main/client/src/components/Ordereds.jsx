@@ -8,7 +8,7 @@ import OrderWeight from "./OrderWeight";
 function Ordereds() {
     return (
         <div className={s.ordereds}>
-            <h2>All Dogs</h2>
+            {/* <h2>All Dogs</h2> */}
             <h3>Order:</h3>
             <OrderAlf />
             <OrderWeight />

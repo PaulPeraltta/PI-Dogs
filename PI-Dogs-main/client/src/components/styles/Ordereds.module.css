@@ -1,22 +1,28 @@
  .ordereds {
+     /* width: 100vw; */
      display: flex;
      flex-direction: row;
-     justify-content: flex-end;
-     margin-right: 45px;
+     /* justify-content: flex-end; */
+     justify-content: center; /* --------------------------------- */
+     /* padding-right: 45px; */
      /* margin-top: 10px; */
-     margin-top: 7px; /* --------------------------------- */
-     margin-bottom: 7px; /* --------------------------------- */
+     padding-top: 3px; /* --------------------------------- */
+     padding-bottom: 3px; /* --------------------------------- */
+     /* background-color: rgba(255, 255, 255, 0.527); */
      
      align-items: center;
+     
  }
  .ordereds h2 {
      margin-right: 320px;
      color: white;
- }
- .ordereds h3 {
-     margin-left: 10px;
-     margin-right: 10px;
-     color: white;
+     /* color: black; */
+    }
+    .ordereds h3 {
+        margin-left: 10px;
+        margin-right: 10px;
+        color: white;
+     /* color: black; */
  }
 
  .select {
@@ -31,6 +37,7 @@
     font-size: 17px;
     border-radius: 15px;
     background-color: rgba(0, 0, 0, 0.76);
+    /* background-color: rgba(0, 76, 163, 0.76); */
     color: white;
     border-top: transparent;
     border-bottom: transparent;

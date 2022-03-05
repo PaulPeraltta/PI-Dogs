@@ -7,8 +7,8 @@
     grid-template-rows: 255px 255px; */
 
 
-    margin: 6px 0px;
-    grid-template-columns: 280px 280px 280px 280px;
+    margin: 8px 0px;
+    grid-template-columns: 300px 300px 300px 300px;
     grid-template-rows: 260px 239px;
     justify-items: center;
     align-items: center;
