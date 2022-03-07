@@ -1,34 +1,22 @@
- .ordereds {
-     /* width: 100vw; */
+.ordereds {
      display: flex;
      flex-direction: row;
-     /* justify-content: flex-end; */
-     justify-content: center; /* --------------------------------- */
-     /* padding-right: 45px; */
-     /* margin-top: 10px; */
-     padding-top: 3px; /* --------------------------------- */
-     padding-bottom: 3px; /* --------------------------------- */
-     /* background-color: rgba(255, 255, 255, 0.527); */
-     
+     justify-content: center;
+     padding-top: 3px;
+     padding-bottom: 3px;
      align-items: center;
      
  }
- .ordereds h2 {
-     margin-right: 320px;
-     color: white;
-     /* color: black; */
-    }
-    .ordereds h3 {
-        margin-left: 10px;
-        margin-right: 10px;
-        color: white;
-     /* color: black; */
- }
 
- .select {
+.ordereds h3 {
+    margin-left: 10px;
+    margin-right: 10px;
+    color: var(--main-color);
+}
+
+.select {
     display: flex;
     justify-content: left;
-    /* text-align: center; */
     width: 120px;
     padding-top: 7px;
     padding-bottom: 7px;
@@ -36,13 +24,13 @@
     padding-right: 20px;
     font-size: 17px;
     border-radius: 15px;
-    background-color: rgba(0, 0, 0, 0.76);
-    /* background-color: rgba(0, 76, 163, 0.76); */
-    color: white;
+    background-color: white;
+    color: var(--main-color);
     border-top: transparent;
     border-bottom: transparent;
     border-left: transparent;
     border-right: transparent;
+    /* border: 2px rgb(0, 2, 138) solid; */
     outline: none;
     margin-right: 5px;
 }

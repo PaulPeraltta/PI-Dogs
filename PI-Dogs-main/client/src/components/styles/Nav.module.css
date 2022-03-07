@@ -1,27 +1,20 @@
 .navAll {
-    background-color: rgba(0, 0, 0, 0.658);
-    /* background-color: rgba(0, 76, 163, 0.76); */
     align-items: center;
     display:flex;
     justify-content: left;
-    /* padding-top: 5px;
-    padding-bottom: 5px; */
     padding-left: 58px;
     padding-right: 58px;
     margin-top: 0px;
-
 }
 
 .title {
     font-size: 36px;
     margin-right: 40vw;
-    color: white;
-    /* color: rgb(0, 2, 138); */
+    color: var(--main-color);
 }
 
 .about {
-    color: white;
-    /* color: rgb(0, 2, 138); */
+    color: var(--main-color);
     font-size: 24px;
     margin-top: 15px;
     margin-bottom: 15px;
@@ -33,5 +26,5 @@
 }
 
 .about:hover {
-    color: rgb(199, 199, 199);
+    color: var(--hover-color);
 }

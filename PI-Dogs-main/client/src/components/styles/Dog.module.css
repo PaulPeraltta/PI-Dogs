@@ -1,15 +1,17 @@
  .card {
      width: 244px;
      height: 227px;
-     background-color: rgba(0, 0, 0, 0.664);
+     /* background-color: rgba(255, 255, 255, 0.822); */
+     background-color: rgb(255, 255, 255);
      /* margin-top: 15px;
      margin-right: 30px;
      margin-bottom: 15px;
      margin-left: 30px; */
-     border-radius: 25px;
+     border-radius: 19px;
      padding-bottom: 17px;
      /* position:absolute; */
      box-sizing: content-box;
+     /* border: 2px rgb(0, 2, 138) solid; */
  }
 
  .card:hover{
@@ -23,18 +25,19 @@
      right: 0px;
      top: 130px;
      white-space: nowrap;
-     background-color: white;
-     color: black;
+     background-color: rgb(0, 2, 138);
+     color: white;
      font-weight: 700;
      font-size: 14px;
      padding-bottom: 7px;
      padding-top: 7px;
- }
-
- .name {
-     color: rgb(255, 255, 255);
+    }
+    
+    .name {
+        /* color: rgb(0, 0, 0); */
+        color: rgb(0, 2, 138);
      font-size: 20px;
-     white-space: nowrap;
+     white-space:inherit;
  }
 
  .image {
@@ -48,37 +51,40 @@
 
  .bottom {
      margin-top: 5px;
-     color: rgb(141, 141, 141);
      display: flex;
      align-items: center;
      justify-content: center;
- }
-
- .bottom p {
-     color: rgb(199, 199, 199);
+    }
+    
+    .bottom p {
+     color: rgb(82, 82, 82);
+     /* color: rgb(199, 199, 199); */
      font-size: 13px;
      /* width: 343px; */
- }
-
- .boxTempArray{
-    height: 20px;
-    display:flex;
-    justify-content: center;
-    width: 240px;
-    box-sizing: border-box;
-    white-space: normal;
-    flex-wrap: wrap;
- }
-
- .bottomArray {
-    margin-top: 5px;
-    color: rgb(141, 141, 141);
-    /* display: flex;
-    justify-content: center;
-    align-items: center; */
- }
- .boxTempArray p {
-    color: rgb(199, 199, 199);
-    font-size: 13px;
-    white-space: nowrap;
-}
+    }
+    
+    .boxTempArray{
+        height: 20px;
+        display:flex;
+        justify-content: center;
+        width: 240px;
+        box-sizing: border-box;
+        white-space: normal;
+        flex-wrap: wrap;
+    }
+    
+    .bottomArray {
+        margin-top: 5px;
+        /* color: rgb(141, 141, 141); */
+        /* display: flex;
+        justify-content: center;
+        align-items: center; */
+    }
+    .boxTempArray p {
+        /* color: rgb(199, 199, 199); */
+        /* color: rgb(0, 2, 138); */
+        color: rgb(82, 82, 82);
+        font-size: 13px;
+        white-space: nowrap;
+    }
+    
