@@ -1,32 +1,24 @@
 .navAll {
+    width: 100vw;
     background-color: rgba(0, 0, 0, 0.658);
-    /* background-color: rgba(0, 76, 163, 0.76); */
     align-items: center;
     display:flex;
-    justify-content: left;
-    /* padding-top: 5px;
-    padding-bottom: 5px; */
-    padding-left: 58px;
-    padding-right: 58px;
+    justify-content: center;
     margin-top: 0px;
-
 }
 
 .title {
     font-size: 36px;
-    margin-right: 40vw;
+    margin-right: 38vw;
     color: white;
-    /* color: rgb(0, 2, 138); */
 }
 
 .about {
     color: white;
-    /* color: rgb(0, 2, 138); */
     font-size: 24px;
     margin-top: 15px;
     margin-bottom: 15px;
     display: relative;
-    left: 30px;
     margin-left: 20px;
     margin-right: 10px;
     cursor: pointer;
