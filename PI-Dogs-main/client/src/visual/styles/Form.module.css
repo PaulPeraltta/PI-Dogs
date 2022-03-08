@@ -1,8 +1,9 @@
 .form {
     width: 100%;
     height: 100vh;
-   background-image: url('https://imagesvc.meredithcorp.io/v3/mm/image?q=85&c=sc&poi=%5B1040%2C519%5D&w=2000&h=1000&url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F47%2F2021%2F01%2F28%2Flitter-of-golden-retrievers-88815129-2000.jpg');
+    /* background-image: url('https://imagesvc.meredithcorp.io/v3/mm/image?q=85&c=sc&poi=%5B1040%2C519%5D&w=2000&h=1000&url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F47%2F2021%2F01%2F28%2Flitter-of-golden-retrievers-88815129-2000.jpg'); */
+    background-image: url('https://img.wallpapersafari.com/desktop/1920/1080/74/71/gc2Pi9.jpg');
     background-position: center;
     background-size: cover;
-    image-rendering: optimizeSpeed;
+    /* background-rendering: optimizeSpeed; */
 }

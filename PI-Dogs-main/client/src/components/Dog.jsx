@@ -8,7 +8,9 @@ export default function Dog({id, name, dogImage, temps, weight}) {
         <div className={s.card}>
             <Link style={{textDecoration:"none"}} to={`/home/dogs/${id}`}>
             <div style={{position: "absolute", display: "flex", justifyContent: "right"}}>
-            <img className={s.image} src={dogImage} alt="Doggie" />
+                <div className={s.imageContainer}>
+                    <img className={s.image} src={dogImage} alt="Doggie" />
+                </div>
             <h4>Weight: {weight} kg</h4>
             </div>
             <div className={s.boxBottom} style={{marginTop: "165px"}}>

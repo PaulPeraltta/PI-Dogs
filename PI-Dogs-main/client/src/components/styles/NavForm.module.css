@@ -1,28 +1,20 @@
 .navAll {
+    height: 45.375px;
     background-color: rgba(0, 0, 0, 0.658);
-    align-items: center;
     display:flex;
-    justify-content: left;
-    padding-left: 58px;
-    padding-right: 58px;
-    margin-top: 0px;
+    justify-content: space-between;
+    padding: 6px 60px;
 }
 
 .title {
     font-size: 36px;
-    margin-right: 64.57vw;
     color: white;
 }
 
 .about {
     color: white;
     font-size: 24px;
-    margin-top: 15px;
-    margin-bottom: 15px;
-    display: relative;
-    left: 30px;
-    margin-left: 20px;
-    margin-right: 10px;
+    /* display: relative; */
     cursor: pointer;
 }
 

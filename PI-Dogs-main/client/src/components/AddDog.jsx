@@ -6,16 +6,22 @@ import s from "./styles/AddDog.module.css";
 
 function validate(dog) {
   let errors = {};
-  if(!dog.name) {
-    errors.name = "Require name"
-  } else if(!dog.image) {
-    errors.image = "Require image"
-  } else if(!dog.height) {
-    errors.height = "Require height"
-  } else if(!dog.weight) {
-    errors.weight = "Require weight"
-  } else if(!dog.life_span) {
-    errors.life_span = "Require life span"
+  if (!dog.name) {
+    errors.name = "Require name";
+  } else if (!dog.image) {
+    errors.image = "Require image";
+  } else if (!dog.heightMin) {
+    errors.heightMin = "Require min height";
+  } else if (!dog.heightMax) {
+    errors.heightMax = "Require max height";
+  } else if (!dog.weightMin) {
+    errors.weightMin = "Require min weight";
+  } else if (!dog.weightMax) {
+    errors.weightMax = "Require max weight";
+  } else if (!dog.life_spanMin) {
+    errors.life_spanMin = "Require min life span";
+  } else if (!dog.life_spanMax) {
+    errors.life_spanMax = "Require max life span";
   }
 
   return errors;
@@ -28,12 +34,15 @@ export default function AddDog() {
   const [dog, setDog] = useState({
     name: "",
     image: "",
-    height: "",
-    weight: "",
-    life_span: "",
+    heightMin: "",
+    heightMax: "",
+    weightMin: "",
+    weightMax: "",
+    life_spanMin: "",
+    life_spanMax: "",
     temperament: [],
   });
-  const [errors, setErrors] = useState({})
+  const [errors, setErrors] = useState({});
 
   function onInputChange(e) {
     e.preventDefault();
@@ -41,10 +50,12 @@ export default function AddDog() {
       ...dog,
       [e.target.name]: e.target.value,
     });
-    setErrors(validate({
-      ...dog,
-      [e.target.name]: e.target.value,
-    }))
+    setErrors(
+      validate({
+        ...dog,
+        [e.target.name]: e.target.value,
+      })
+    );
   }
 
   function handleSelect(e) {
@@ -62,9 +73,12 @@ export default function AddDog() {
     setDog({
       name: "",
       image: "",
-      height: "",
-      weight: "",
-      life_span: "",
+      heightMin: "",
+      heightMax: "",
+      weightMin: "",
+      weightMax: "",
+      life_spanMin: "",
+      life_spanMax: "",
       temperament: [],
     });
     history.push("/home");
@@ -78,147 +92,276 @@ export default function AddDog() {
     <div className={s.all}>
       <form className={s.formulario} onSubmit={(e) => onSubmit(e)}>
         <Link to="/home">
-          <button className={s.button}>Back</button>
+          <button className={s.buttonBack}>Back</button>
         </Link>
         <div className={s.boxForm}>
           <h1 className={s.head}>New Breed Dog</h1>
           <div className={s.boxThree}>
-          <div className={s.three}>
-            <div className={s.divs}>
-              <label className={s.heads}>Name</label>
-              <div className={s.boxFormularios}>
-                {errors.name ? 
-                <input 
-                className={s.inputError}
-                onChange={onInputChange}
-                value={dog.name}
-                name="name"
-                type="text"
-              /> : 
-                <input 
-                  className={s.input}
-                  onChange={onInputChange}
-                  value={dog.name}
-                  name="name"
-                  type="text"
-                />
-                }
-                {errors.name && <p className={s.error}>{errors.name}</p>}
+            <div className={s.three}>
+              <div className={s.divs}>
+                <label className={s.heads}>Name</label>
+                <div className={s.boxFormularios}>
+                  {errors.name ? (
+                    <input
+                      className={s.inputError}
+                      onChange={onInputChange}
+                      value={dog.name}
+                      name="name"
+                      type="text"
+                    />
+                  ) : (
+                    <input
+                      className={s.input}
+                      onChange={onInputChange}
+                      value={dog.name}
+                      name="name"
+                      type="text"
+                      placeholder="e.g: Rocky"
+                    />
+                  )}
+                  {errors.name && <p className={s.error}>{errors.name}</p>}
+                </div>
+              </div>
+              <div className={s.divs}>
+                <label className={s.heads}>Image</label>
+                <div className={s.boxFormularios}>
+                  {errors.image ? (
+                    <input
+                      className={s.inputError}
+                      onChange={onInputChange}
+                      value={dog.image}
+                      name="image"
+                      type="text"
+                    />
+                  ) : (
+                    <input
+                      className={s.input}
+                      onChange={onInputChange}
+                      value={dog.image}
+                      name="image"
+                      type="text"
+                      placeholder="Image link"
+                    />
+                  )}
+                  {errors.image && <p className={s.error}>{errors.image}</p>}
+                </div>
+              </div>
+              <div className={s.divs}>
+                <label className={s.heads}>Height (cm)</label>
+                <div className={s.boxFormularios}>
+                  {errors.height ? (
+                    <div style={{ display: "flex" }}>
+                      <input
+                        className={s.inputError}
+                        onChange={onInputChange}
+                        value={dog.heightMin}
+                        name="heightMin"
+                        type="text"
+                        placeholder="min"
+                      />
+                      <input
+                        className={s.inputError}
+                        onChange={onInputChange}
+                        value={dog.heightMax}
+                        name="heightMax"
+                        type="text"
+                        placeholder="max"
+                      />
+                    </div>
+                  ) : (
+                    <div style={{ display: "flex", alignItems: "center" }}>
+                      <input
+                        className={s.inputWH}
+                        onChange={onInputChange}
+                        value={dog.heightMin}
+                        name="heightMin"
+                        type="text"
+                        placeholder="min"
+                      />{" "}
+                      <p
+                        style={{
+                          fontSize: "20px",
+                          color: "white",
+                          margin: "0px 10px",
+                        }}
+                      >
+                        &#8211;
+                      </p>
+                      <input
+                        className={s.inputWH}
+                        onChange={onInputChange}
+                        value={dog.heightMax}
+                        name="heightMax"
+                        type="text"
+                        placeholder="max"
+                      />
+                    </div>
+                  )}
+                  {errors.heightMin && <p className={s.error}>{errors.heightMin}</p>}
+                  {errors.heightMax && <p className={s.error}>{errors.heightMax}</p>}
+                </div>
               </div>
             </div>
-            <div className={s.divs}>
-              <label className={s.heads}>Image</label>
-              <div className={s.boxFormularios}>
-                {errors.image ? 
-                <input
-                  className={s.inputError}
-                  onChange={onInputChange}
-                  value={dog.image}
-                  name="image"
-                  type="text"
-                /> :
-                <input
-                  className={s.input}
-                  onChange={onInputChange}
-                  value={dog.image}
-                  name="image"
-                  type="text"
-                />
-                }
-                {errors.image && <p className={s.error}>{errors.image}</p>}
+            <div className={s.three}>
+              <div className={s.divs}>
+                <label className={s.heads}>Weight (kg)</label>
+                <div className={s.boxFormularios}>
+                  {errors.weight ? (
+                    <div style={{ display: "flex" }}>
+                      <input
+                        className={s.inputError}
+                        onChange={onInputChange}
+                        value={dog.weightMin}
+                        name="weightMin"
+                        type="text"
+                        placeholder="min"
+                      />
+                      <input
+                        className={s.inputError}
+                        onChange={onInputChange}
+                        value={dog.weightMax}
+                        name="weightMax"
+                        type="text"
+                        placeholder="max"
+                      />
+                    </div>
+                  ) : (
+                    <div style={{ display: "flex", alignItems: "center" }}>
+                      <input
+                        className={s.inputWH}
+                        onChange={onInputChange}
+                        value={dog.weightMin}
+                        name="weightMin"
+                        type="text"
+                        placeholder="min"
+                      />{" "}
+                      <p
+                        style={{
+                          fontSize: "20px",
+                          color: "white",
+                          margin: "0px 10px",
+                        }}
+                      >
+                        &#8211;
+                      </p>
+                      <input
+                        className={s.inputWH}
+                        onChange={onInputChange}
+                        value={dog.weightMax}
+                        name="weightMax"
+                        type="text"
+                        placeholder="max"
+                      />
+                    </div>
+                  )}
+                  {errors.weightMin && <p className={s.error}>{errors.weightMin}</p>}
+                  {errors.weightMax && <p className={s.error}>{errors.weightMax}</p>}
+                </div>
               </div>
-            </div>
-            <div className={s.divs}>
-              <label className={s.heads}>Height</label>
-              <div className={s.boxFormularios}>
-                { errors.height ? 
-                <input
-                  className={s.inputError}
-                  onChange={onInputChange}
-                  value={dog.height}
-                  name="height"
-                  type="text"
-                /> :
-                <input
-                  className={s.input}
-                  onChange={onInputChange}
-                  value={dog.height}
-                  name="height"
-                  type="text"
-                />}
-                {errors.height && <p className={s.error}>{errors.height}</p>}
+              <div className={s.divs}>
+                <label className={s.heads}>Life span (years)</label>
+                <div className={s.boxFormularios}>
+                  {errors.life_span ? (
+                    <div style={{ display: "flex", alignItems: "center" }}>
+                      <input
+                        className={s.inputError}
+                        onChange={onInputChange}
+                        value={dog.life_spanMin}
+                        name="life_spanMin"
+                        type="text"
+                        placeholder="min"
+                      />{" "}
+                      <p
+                        style={{
+                          fontSize: "20px",
+                          color: "white",
+                          margin: "0px 10px",
+                        }}
+                      >
+                        &#8211;
+                      </p>
+                      <input
+                        className={s.inputError}
+                        onChange={onInputChange}
+                        value={dog.life_spanMax}
+                        name="life_spanMax"
+                        type="text"
+                        placeholder="max"
+                      />
+                    </div>
+                  ) : (
+                    <div style={{ display: "flex", alignItems: "center" }}>
+                      <input
+                        className={s.inputWH}
+                        onChange={onInputChange}
+                        value={dog.life_spanMin}
+                        name="life_spanMin"
+                        type="text"
+                        placeholder="min"
+                      />{" "}
+                      <p
+                        style={{
+                          fontSize: "20px",
+                          color: "white",
+                          margin: "0px 10px",
+                        }}
+                      >
+                        &#8211;
+                      </p>
+                      <input
+                        className={s.inputWH}
+                        onChange={onInputChange}
+                        value={dog.life_spanMax}
+                        name="life_spanMax"
+                        type="text"
+                        placeholder="max"
+                      />
+                    </div>
+                  )}
+                  {errors.life_spanMin && (
+                    <p className={s.error}>{errors.life_spanMin}</p>
+                  )}
+                  {errors.life_spanMax && (
+                    <p className={s.error}>{errors.life_spanMax}</p>
+                  )}
+                </div>
+              </div>
+              <div className={s.divs}>
+                <label className={s.heads}>Temperament</label>
+                <div className={s.boxFormularios}>
+                  <select
+                    style={{ paddingLeft: "46px", paddingRight: "46px" }}
+                    className={s.input}
+                    onChange={(e) => handleSelect(e)}
+                  >
+                    {temperaments.map((temp) => (
+                      <option value={temp.name} key={temp.id}>
+                        {temp.name}
+                      </option>
+                    ))}
+                  </select>
+                </div>
               </div>
             </div>
           </div>
-          <div className={s.three}>
-            <div className={s.divs}>
-              <label className={s.heads}>Weight</label>
-              <div className={s.boxFormularios}>
-                {errors.weight ? <input
-                  className={s.inputError}
-                  onChange={onInputChange}
-                  value={dog.weight}
-                  name="weight"
-                  type="text"
-                /> :
-                <input
-                  className={s.input}
-                  onChange={onInputChange}
-                  value={dog.weight}
-                  name="weight"
-                  type="text"
-                />}
-                {errors.weight && <p className={s.error}>{errors.weight}</p>}
-              </div>
-            </div>
-            <div className={s.divs}>
-              <label className={s.heads}>Life span</label>
-              <div className={s.boxFormularios}>
-                {errors.life_span?
-                <input
-                  className={s.inputError}
-                  onChange={onInputChange}
-                  value={dog.life_span}
-                  name="life_span"
-                  type="text"
-                />:
-                <input
-                  className={s.input}
-                  onChange={onInputChange}
-                  value={dog.life_span}
-                  name="life_span"
-                  type="text"
-                />}
-                {errors.life_span && <p className={s.error}>{errors.life_span}</p>}
-              </div>
-            </div>
-            <div className={s.divs}>
-              <label className={s.heads}>Temperament</label>
-              <div className={s.boxFormularios}>
-                <select
-                  style={{ paddingLeft: "46px", paddingRight: "46px" }}
-                  className={s.input}
-                  onChange={(e) => handleSelect(e)}
-                >
-                  {temperaments.map((temp) => (
-                    <option value={temp.name} key={temp.id}>
-                      {temp.name}
-                    </option>
-                  ))}
-                </select>
-              </div>
+          <div className={s.temps}>
+            <div
+              style={{
+                display: "inline-flex",
+                listStyle: "none",
+                color: "white",
+                width: "402px",
+              }}
+            >
+              {dog.temperament.length
+                ? dog.temperament.map((t) => t + ", ")
+                : "Here the selected temperaments will appear"}
             </div>
           </div>
         </div>
-        <div className={s.temps}>
-          <div style={{ display: "inline-flex", listStyle: "none", color: "white", width: "402px" }}>
-            { dog.temperament.length ? dog.temperament.map((t) => t + ", ") : "Here the selected temperaments will appear"}
-          </div>
-        </div>
-          </div>
         <div>
-          <input className={s.button} type="submit" value="Create" /> :
-         </div>
+          <input className={s.buttonOk} type="submit" value="Create" /> :
+        </div>
       </form>
     </div>
   );

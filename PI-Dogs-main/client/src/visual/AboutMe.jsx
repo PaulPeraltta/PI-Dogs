@@ -30,30 +30,36 @@ export default function AboutMe() {
         </div>
       </div>
       <div className={s.boxima}>
+        
         <div className={s.net}>
+          <a style={{textDecoration: "none"}} href="https://github.com/PaulPeraltta" target='_blank' alt="Pablo Peralta - GitHub">
           <img
-            href=""
             className={s.image}
             src="https://img.icons8.com/ios-glyphs/30/ffffff/github.png"
             alt="Github-Logo"
           />
           <p>GitHub</p>
+          </a>
         </div>
         <div className={s.net}>
+          <a style={{textDecoration: "none"}} href="https://www.linkedin.com/in/pablo-peralta-it/" target='_blank' alt="Pablo Peralta - LinkedIn">
           <img
             className={s.image}
             src="https://img.icons8.com/ios-glyphs/30/ffffff/linkedin.png"
             alt="LinkedIn-Logo"
           />
           <p>LinkedIn</p>
+          </a>
         </div>
         <div className={s.net}>
+          <a style={{textDecoration: "none"}} href="mailto:pabloperalta.it@gmail.com?Subject=Hola%20Pablo!%20Vengo%20desde%20MyLittleBuddy!" >
           <img
             className={s.image}
             src="https://img.icons8.com/windows/32/ffffff/gmail-new.png"
             alt="Gmail-Logo"
           />
           <p>Gmail</p>
+          </a>
         </div>
       </div>
     </div>
