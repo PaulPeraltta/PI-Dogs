@@ -1,5 +1,6 @@
 .all {
-    background-image: url('https://fondosmil.com/fondo/10256.jpg');
+    background-image: url('https://wallpaperstock.net/wallpapers/thumbs1/47148wide.jpg');
+    /* background-filter: blur(2px); */
     background-attachment: fixed;
     width: 100vw;
     height: 100vh;
@@ -10,7 +11,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding-top: 60px;
+    padding-top: 80px;
     color: white;
 }
 

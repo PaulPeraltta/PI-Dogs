@@ -42,7 +42,7 @@ export default function DogDetail() {
             }}
           >
             <button onClick={(e) => onBack(e)} className={s.button}>
-              Back
+            <img className={s.cross} src="https://img.icons8.com/material-outlined/24/ffffff/delete-sign.png" alt="Cross"/>
             </button>
           </div>
           <img className={s.imagen} src={dog.image} alt="Doggie" />
